@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .root {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      background-color: #333;
+      margin: 100px auto;
+      animation: sk-rotateplane 1.2s infinite ease-in-out;
+    }
+
+    @keyframes sk-rotateplane {
+      0% {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+      } 50% {
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+      } 100% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="root">
+    <div class="spinner"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/gh/Haliont/eyebuy/index.js"></script>
+  <script>
+    window.eyebuy({
+      addToCart: (product) => {
+        return new Promise((resolve) => setTimeout(resolve, 2000))
+          .then(() => {
+            const productsJSON = localStorage.getItem('products');
+            const products = JSON.parse(productsJSON) || [];
+
+            const newProducts = [...products, product];
+            const newProductsJSON = JSON.stringify(newProducts);
+            localStorage.setItem('products', newProductsJSON);
+          });
+      },
+      redirectUrl: './cart.html',
+    });
+  </script>
+</body>
+</html>

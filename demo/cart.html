@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+</head>
+<body>
+  <pre id="products"></pre>
+</body>
+<script>
+  const productsJSON = localStorage.getItem('products');
+  const products = JSON.parse(productsJSON);
+
+  const productsElement = document.getElementById('products');
+  productsElement.innerHTML = JSON.stringify(products, null, '\t');
+</script>
+</html>
