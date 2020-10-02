@@ -3,16 +3,18 @@
   console.log('* EYEBUY SCRIPT SUCCESSFULLY LOADED *');
   console.log('*************************************');
 
+  const urlObject = new URL(window.location.href);
+  const jsonProducts = urlObject.searchParams.getAll('products');
+  const products = jsonProducts.map(JSON.parse);
+
+  document.cookie = `from_eyebuy=${urlObject.search}}`;
+
   const init = (options) => {
     const addToCart = options.addToCart || (() => {});
     const redirectUrl = options.redirectUrl || window.location.href;
 
-    const urlObject = new URL(window.location.href);
-    const jsonProducts = urlObject.searchParams.getAll('products');
-    const products = jsonProducts.map(JSON.parse);
-
     if (!products.length) {
-      window.location.replace(redirectUrl);
+      // window.location.replace(redirectUrl);
       return;
     }
 
@@ -23,7 +25,7 @@
       }, Promise.resolve(addToCart(products[0])));
 
     promisesChain.then(() => {
-      window.location.replace(redirectUrl);
+      // window.location.replace(redirectUrl);
     });
   };
 
