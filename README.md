@@ -1,4 +1,4 @@
-[demo](http://curvy-field.surge.sh/index.html?products=%7B"id"%3A1%2C"price"%3A200%2C"count"%3A1%7D&products=%7B"id"%3A2%2C"price"%3A300%2C"count"%3A2%7D&products=%7B"id"%3A3%2C"price"%3A400%2C"count"%3A1%7D)
+[demo](http://halting-cat.surge.sh/index.html?products=%7B"id"%3A1%2C"price"%3A200%2C"count"%3A1%7D&products=%7B"id"%3A2%2C"price"%3A300%2C"count"%3A2%7D&products=%7B"id"%3A3%2C"price"%3A400%2C"count"%3A1%7D)
 
 1. Добавить на сайт страницу формата `<domain-name>/checkout-eyebuy`
 2. Добавить на эту страницу eyebuy скрипт и инициализируйте его
