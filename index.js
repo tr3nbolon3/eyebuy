@@ -10,7 +10,6 @@
     const urlObject = new URL(window.location.href);
     const jsonProducts = urlObject.searchParams.getAll('products');
     const products = jsonProducts.map(JSON.parse);
-
     document.cookie = `from_eyebuy=${urlObject.search}}`;
 
     if (!products.length) {
